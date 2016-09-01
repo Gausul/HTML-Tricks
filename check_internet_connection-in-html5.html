@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<title>Check-Internet-Connection-In-Html5</title>
+<head>
+    <script>
+        function CheckInternetConnection(msg) {
+            var status = document.getElementById("status");
+            var condition = navigator.onLine ? "ONLINE" : "OFFLINE";           
+            var state = document.getElementById("state");
+            state.innerHTML = condition;           
+        }
+        function Pageloaded() {
+            CheckInternetConnection("load");
+            document.body.addEventListener("offline", function () {
+                CheckInternetConnection("offline")
+            }, false);
+            document.body.addEventListener("online", function () {
+                CheckInternetConnection("online")
+            }, false);
+        }
+    </script>
+    <style>
+        ...</style>
+</head>
+<body onload="Pageloaded()">
+<h1>Check-Internet-Connection-In-Html5</h1>
+    <div id="status">
+        <p id="state">
+        </p>
+    </div>  
+</body>
+</html>
